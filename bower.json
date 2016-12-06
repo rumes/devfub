@@ -1,0 +1,21 @@
+{
+  "name": "devfub",
+  "description": "angular2 polymer",
+  "main": "",
+  "authors": [
+    "rumes <rs.kumarasinghe89@gmail.com>"
+  ],
+  "license": "MIT",
+  "homepage": "https://github.com/rumes/devfub",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "app/_/bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "app-layout": "PolymerElements/app-layout#^0.10.6"
+  }
+}
