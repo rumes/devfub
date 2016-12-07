@@ -5,7 +5,8 @@ import { DrawerComponent } from './drawer/drawer.component';
 import { FooterComponent } from './footer/footer.component';
 import { HeaderComponent } from './header/header.component';
 
-import {ToolbarModule, ButtonModule, SplitButtonModule} from 'primeng/primeng';
+import {ToolbarModule, MenuModule} from 'primeng/primeng';
+import {LayoutRoutingModule} from './layout-routing.module'
 
 
 
@@ -14,8 +15,7 @@ import {ToolbarModule, ButtonModule, SplitButtonModule} from 'primeng/primeng';
   imports: [
     CommonModule,
     ToolbarModule,
-    ButtonModule,
-    SplitButtonModule
+    MenuModule
   ],
   exports :[LayoutComponent],
   declarations: [LayoutComponent, DrawerComponent, FooterComponent, HeaderComponent],

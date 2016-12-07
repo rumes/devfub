@@ -1,5 +1,9 @@
-<div class="ui-g-row stikyhead" [@visibilityChanged]="isScroll" > 
-	<p-toolbar [style] = "{'height': '100%'}"  >
-	    Header
+<div class="ui-g-row" [@visibilityChanged]="isScroll" > 
+	<p-toolbar [style] = "{'height': '100%','background':'rgba(38, 58, 68, 0.8)'}" styleClass = "stikyHead">
+	    
+	<span id='clickableAwesomeFont' (click)= "toggle()">
+		<i class="fa fa-eercast fa-2x ui-toolbar-group-left"></i>
+	</span>
+
 	</p-toolbar>
 </div>

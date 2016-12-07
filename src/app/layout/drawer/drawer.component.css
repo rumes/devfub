@@ -1,0 +1,8 @@
+.leftDrawer{
+	width: 250px;
+	height: 100%;
+	position:'fixed';
+	top: 50%;
+    left:'0px'; 
+
+}

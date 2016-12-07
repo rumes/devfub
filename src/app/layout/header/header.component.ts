@@ -9,8 +9,8 @@ import { Component, OnInit, OnChanges, Input,
       state('true' , style({ opacity: 1, transform: 'scale(1.0)', height: '180px' })),
       state('false', style({ opacity: 0.8, height: '60px', position:'fixed', top:'0px',
     		left:'0px', right:'0px',  bottom:'0px' })),
-      transition('1 => 0', animate('300ms')),
-      transition('0 => 1', animate('10ms'))
+      transition('1 => 0', animate('0ms')),
+      transition('0 => 1', animate('0ms'))
   ])
   ],
   templateUrl: './header.component.html',
@@ -23,4 +23,7 @@ export class HeaderComponent implements OnInit {
   ngOnInit() {
   }
 
+  toggle(){
+    console.log('toggle')
+  }
 }

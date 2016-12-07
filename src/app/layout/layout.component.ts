@@ -7,8 +7,10 @@ import { DOCUMENT } from '@angular/platform-browser';
   styleUrls: ['./layout.component.css']
 })
 export class LayoutComponent implements OnInit {
+  
 	navIsFixed : boolean = true;
-  constructor(@Inject(DOCUMENT) private document: Document) { }
+
+  constructor() { }
 
   ngOnInit() {
   }
