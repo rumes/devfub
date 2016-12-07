@@ -1,7 +1,8 @@
 /* tslint:disable:no-unused-variable */
-
+import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { TestBed, async } from '@angular/core/testing';
 import { AppComponent } from './app.component';
+import { LayoutModule } from './layout/layout.module'
 
 describe('AppComponent', () => {
   beforeEach(() => {
@@ -9,6 +10,8 @@ describe('AppComponent', () => {
       declarations: [
         AppComponent
       ],
+      imports: [LayoutModule],
+      schemas: [CUSTOM_ELEMENTS_SCHEMA],
     });
     TestBed.compileComponents();
   });

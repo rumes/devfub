@@ -5,12 +5,20 @@ import { DrawerComponent } from './drawer/drawer.component';
 import { FooterComponent } from './footer/footer.component';
 import { HeaderComponent } from './header/header.component';
 
+import {ToolbarModule, ButtonModule, SplitButtonModule} from 'primeng/primeng';
+
+
 
 
 @NgModule({
   imports: [
-    CommonModule
+    CommonModule,
+    ToolbarModule,
+    ButtonModule,
+    SplitButtonModule
   ],
-  declarations: [LayoutComponent, DrawerComponent, FooterComponent, HeaderComponent]
+  exports :[LayoutComponent],
+  declarations: [LayoutComponent, DrawerComponent, FooterComponent, HeaderComponent],
+  providers: []
 })
 export class LayoutModule { }
