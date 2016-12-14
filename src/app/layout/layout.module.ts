@@ -8,10 +8,11 @@ import { HeaderComponent } from './header/header.component';
 import {ToolbarModule, MenuModule} from 'primeng/primeng';
 import {LayoutRoutingModule} from './layout-routing.module'
 
-
+import {VariableService} from '../services/variable.service';
 
 
 @NgModule({
+	// dependenci injection for layout module
   imports: [
     CommonModule,
     ToolbarModule,
@@ -19,6 +20,6 @@ import {LayoutRoutingModule} from './layout-routing.module'
   ],
   exports :[LayoutComponent],
   declarations: [LayoutComponent, DrawerComponent, FooterComponent, HeaderComponent],
-  providers: []
+  providers: [VariableService]
 })
 export class LayoutModule { }

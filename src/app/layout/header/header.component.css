@@ -1,15 +1,20 @@
+/*change cursor symbol to pointer*/
 #clickableAwesomeFont {
      cursor: pointer;
      
 }
 
+/*style for header left corner element*/
 .ui-toolbar-group-left{
 	padding: 12px;
      padding-left: 20px;
+     color: white;
 }
 
-
-.ui-toolbar-group-left {
+/*style for header right corner element*/
+.ui-toolbar-group-right {
 	color: white;
+	padding: 15px;
+	cursor: pointer;
 	}
 

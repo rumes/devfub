@@ -15,6 +15,7 @@ export class LayoutComponent implements OnInit {
   ngOnInit() {
   }
 
+// using Host listener monitor the scroll event and according to scroll height set header animation enable or disable
   @HostListener("window:scroll", ['$event'])
   onWindowScroll(e){
   	let number = window.pageYOffset;

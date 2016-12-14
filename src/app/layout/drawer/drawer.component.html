@@ -1,3 +1,4 @@
-<div class="leftDrawer">
-	<p-menu [model]="items"></p-menu>
+<!-- set draver panel usin primeng menu element and add animation -->
+<div [@drawerToggle]="isToggle" class="leftDrawer">
+	<p-menu [model]="items" [style] = "{'height':'100%'}"></p-menu>
 </div>

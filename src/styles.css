@@ -1,1 +1,23 @@
-/* You can add global styles to this file, and also import other style files */
+/*add button style*/
+.button-add-student{
+	margin-top: 5px;
+}
+/*prime ng button container class*/
+.ui-button{
+	width: 225px;
+	position: inherit;
+}
+/*input field style*/
+.inputClass{
+	margin: 5px;
+}
+
+.button-field{
+
+	position: inherit;
+}
+.rowData >.ui-button{
+	text-align: center;
+	margin: auto;
+	background-color: red;
+}
