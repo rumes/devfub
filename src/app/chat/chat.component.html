@@ -10,6 +10,16 @@
 		<div class="ui-g-5">
 			<div class="ui-g-row">
 				seach groups
+				<div class="ui-g-row">
+					<input type="text" pInputText (keyup) = "searchGroup(groupsearch.value)" #groupsearch/>
+				</div>
+				<div class="ui-g-row">
+					<ul *ngIf="filterGroups">
+						<li *ngFor="let filterGroup of filterGroups">
+							<a routerLink='room/{{filterGroup.title}}'>{{filterGroup.title}}</a>
+						</li>						
+					</ul>
+				</div>
 			</div>
 			<div class="ui-g-row">
 				Creat Groups
@@ -17,4 +27,3 @@
 		</div>
 		
 </div>
-

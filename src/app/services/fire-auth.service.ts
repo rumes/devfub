@@ -41,7 +41,4 @@ export class FireAuthService{
       }).take(1);
   }
 
-
-
-
 }

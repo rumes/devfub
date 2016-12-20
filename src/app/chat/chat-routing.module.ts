@@ -8,11 +8,17 @@ const chatRoot:Routes = [
 
   {
     path : 'room/:id',
-    component : ChatWindowComponent
+    component : ChatWindowComponent,
+     data: {
+      preload: true
+    }
   },
 	{
 		path : '',
-		component : ChatComponent
+		component : ChatComponent,
+     data: {
+      preload: true
+    }
 	}
 ];
 
