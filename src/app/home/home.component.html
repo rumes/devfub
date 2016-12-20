@@ -1,0 +1,27 @@
+<div>
+	<p-fieldset legend="Grads & Classes In Hierarchical Structure">
+		<!-- using ng for List the Grads in the Db -->
+		<p-panel header="{{grad.name}}" [toggleable]="true" *ngFor="let grad of grads"  collapsed = false >
+		   <table style="width:100%" class="ui-datatable">
+			  <tr class="ui-state-default">
+			    <th>Class ID</th>
+			    <th>Name</th> 
+			    <th>Created date</th>
+			    <th>Updated date</th>
+			  </tr>
+			  <!-- using ng for and ng if listdwon the related classes -->
+			  <!-- When we using 'ng for' in template tag it need to use as below -->
+			  <template ngFor let-clas [ngForOf]="classes" let-i="index" [ngForTrackBy]="trackByFn">
+				  <tr *ngIf="clas.grad_id ===grad.id">
+				  <!-- using One way data binding set related valus to the fiels -->
+				    <td>{{clas.id}}</td>
+				    <td>{{clas.name}}</td> 
+				    <td>{{clas.created_at}}</td>
+				    <td>{{clas.updated_at}}</td>
+				  </tr>
+			   </template>	
+			</table>
+		</p-panel>
+	    
+	</p-fieldset>
+</div>

@@ -1,0 +1,20 @@
+<div class="ui-g-row">
+		<div class="ui-g-7">
+		group user member
+		<ul *ngIf="memberGroups">
+			<li *ngFor="let memberGroup of memberedGroups">
+				{{memberGroup.$key}}
+			</li>
+		</ul>
+		</div>
+		<div class="ui-g-5">
+			<div class="ui-g-row">
+				seach groups
+			</div>
+			<div class="ui-g-row">
+				Creat Groups
+			</div>
+		</div>
+		
+</div>
+

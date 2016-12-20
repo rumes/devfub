@@ -1,0 +1,12 @@
+<div class="ui-g-1"></div>
+<div class="ui-g-10">
+<!-- use prime ng data table to list the all student in the database -->
+	<p-dataTable [value]="students" selectionMode="single"  #dat>
+	    <p-column field="id" header="ID"></p-column>
+	    <p-column field="name" header="Name"></p-column>
+	    <p-column field="email" header="Email"></p-column>
+	    <p-column field="created_at" header="Added Date"></p-column>
+	    <p-column field="updated_at" header="Updated Date"></p-column>
+	</p-dataTable>
+</div>
+<div class="ui-g-1"></div>

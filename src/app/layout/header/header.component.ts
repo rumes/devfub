@@ -1,21 +1,21 @@
 // import dependencies
 import { Component, OnInit, OnChanges, Input, 
   		trigger, state, animate, transition, 
-  		style} from '@angular/core';
+  		style,Inject,HostListener} from '@angular/core';
 
 import { Router } from '@angular/router';
 import {Subscription} from 'rxjs/Subscription';
 
-import {VariableService, AuthenticationService} from '../../services';
-
+import {VariableService,FireAuthService} from '../../services';
+import { DOCUMENT } from "@angular/platform-browser";
 @Component({
   selector: 'app-header',
   // set animationa for scroll header (visibilityChanged) and menu icon(drawerToggle)
   animations: [
   	trigger('visibilityChanged', [
-      state('true' , style({ opacity: 1, transform: 'scale(1.0)', height: '180px' })),
-      state('false', style({ opacity: 0.8, height: '60px', position:'fixed', top:'0px',
-    		left:'0px', right:'0px',  bottom:'0px' })),
+      state('true' , style({ opacity: 1,  'padding-bottom':'120px'})),
+      state('false', style({ opacity: 0.8, position:'fixed', top:'0px',
+    		left:'0px', right:'0px',  bottom:'0px', 'padding-bottom':'0px' })),
       transition('1 => 0', animate('0ms')),
       transition('0 => 1', animate('0ms'))
   ]),
@@ -37,7 +37,10 @@ export class HeaderComponent implements OnInit {
 logged:boolean = false;
 subscription: Subscription;
 // inject services to component
-  constructor(private variableService : VariableService ,private authService : AuthenticationService, private router : Router) { 
+  constructor(private variableService : VariableService ,
+    private authService : FireAuthService, 
+    private router : Router,
+    @Inject(DOCUMENT) private document: Document) { 
     // logged in or logout defend on login component using variable service determined user logged in or logged out
     this.subscription = variableService.newLogged.subscribe(
             logged => {
@@ -51,16 +54,18 @@ subscription: Subscription;
     this.checkLog();
   }
 // declair toggel function for click on menu icon
-  toggle(){
+  toggle(e){
+    e.stopPropagation();
     this.isToggle = !this.isToggle;
+
     this.variableService.toggleDrawer(this.isToggle);
-    
+ 
   }
 
 // function for check user is already logged in
   checkLog(){
     // check in local storage for user
-    if(localStorage.getItem('currentUser')){
+    if(this.authService.isLogged()){
       this.logged = true;
     }
   }
@@ -69,6 +74,15 @@ subscription: Subscription;
   logOut(){
     this.authService.logout();
     this.logged = false;
-    this.router.navigate(['/login']);
+    this.router.navigate(['/auth']);
+  }
+
+  @HostListener('window:click', ['$event'])
+  onDocumentClick(e){
+      if(this.isToggle) {
+        this.isToggle = !this.isToggle;
+        this.variableService.toggleDrawer(this.isToggle);
+      }
+      
   }
 }

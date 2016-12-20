@@ -1,12 +1,10 @@
 <!-- set header panel and set scroll animation to header-->
-<div class="ui-g-row" [@visibilityChanged]="isScroll" > 
-	<p-toolbar [style] = "{'height': '100%','background':'rgba(38, 58, 68, 0.8)'}" styleClass = "stikyHead">
+<div class="ui-g-row headerCont" [@visibilityChanged]="isScroll" > 
 
  <!--set menu icon and add animation to the element  -->
-	<span [@drawerToggle]="isToggle" id='clickableAwesomeFont' (click)= "toggle()">
+	<span [@drawerToggle]="isToggle" id='clickableAwesomeFont' (click)= "toggle($event)">
 		<i class="fa fa-eercast fa-2x ui-toolbar-group-left"></i>
 	</span>
 	<!-- show logout link only if user loged in and on click call to the logOut function in header.component -->
 	<a *ngIf="logged" (click) = "logOut()" class="ui-toolbar-group-right">LogOut</a>
-	</p-toolbar>
 </div>

@@ -1,0 +1,90 @@
+
+<div class="ui-g-2"></div>
+<div class="ui-g-8">
+<p-messages [value]="msgs"></p-messages>
+<form [formGroup]="studentform" (ngSubmit)="onSubmit(studentform.value)">
+    <p-panel header="Add Class">
+        <div class="ui-grid ui-grid-responsive ui-grid-pad ui-fluid" style="margin: 10px 0px">
+            <div class="ui-grid-row">
+                <div class="ui-grid-col-3">
+                    Name *:
+                </div>
+                <div class="ui-grid-col-9">
+                    <!-- get email bind the value to model.email -->
+                    <input pInputText type="text" formControlName="name" placeholder="Required" [(ngModel)]="model.name"/>
+                </div>
+            </div>
+            <div class="ui-grid-row">
+                <div class="ui-grid-col-12">
+                    <div class="ui-message ui-messages-error ui-corner-all" *ngIf="!studentform.controls['name'].valid&&studentform.controls['name'].dirty">
+                        <i class="fa fa-close"></i>
+                        Name is required
+                    </div>
+                </div>
+            </div>
+
+            <div class="ui-grid-row">
+                <div class="ui-grid-col-3">
+                    Email *:
+                </div>
+                <div class="ui-grid-col-9">
+                    <!-- get email bind the value to model.email -->
+                    <input pInputText type="text" formControlName="email" placeholder="Required" [(ngModel)]="model.email"/>
+                </div>
+            </div>
+            <div class="ui-grid-row">
+                <div class="ui-grid-col-12">
+                    <div class="ui-message ui-messages-error ui-corner-all" *ngIf="!studentform.controls['email'].valid&&studentform.controls['email'].dirty">
+                        <i class="fa fa-close"></i>
+                        Email is required
+                    </div>
+                </div>
+            </div>
+            
+            <div class="ui-grid-row">
+                <div class="ui-grid-col-3">
+                    Grade *:
+                </div>
+                <div class="ui-grid-col-9">
+                    <p-dropdown [options]="grads" formControlName="grad_id" [autoWidth]="false" [(ngModel)]="selectGrad" (onChange) = "getClasses()"></p-dropdown>
+                </div>
+            </div>
+             <div class="ui-grid-row">
+                <div class="ui-grid-col-12">
+                    <div class="ui-message ui-messages-error ui-corner-all" *ngIf="!studentform.controls['grad_id'].valid&&studentform.controls['grad_id'].dirty">
+                        <i class="fa fa-close"></i>
+                        Grad is required
+                    </div>
+                </div>
+            </div>
+            <div class="ui-grid-row">
+                <div class="ui-grid-col-3">
+                    Class *:
+                </div>
+                <div class="ui-grid-col-9">
+                    <p-dropdown [options]="classes" formControlName="class_id" [autoWidth]="false" [(ngModel)]="selectClasses" [disabled] = "!studentform.controls['grad_id'].valid" ></p-dropdown>
+                </div>
+            </div>
+             <div class="ui-grid-row">
+                <div class="ui-grid-col-12">
+                    <div class="ui-message ui-messages-error ui-corner-all" *ngIf="!studentform.controls['class_id'].valid&&studentform.controls['class_id'].dirty">
+                        <i class="fa fa-close"></i>
+                        Class is required
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="ui-grid-row">
+            
+            <div class="ui-grid-col-4 ui-toolbar-group-right">
+                <!-- untill input are valid button is disable -->
+                <button pButton type="submit" label="Add Class" [disabled]="!studentform.valid"></button>
+            </div>
+            
+        </div>
+      
+    </p-panel> 
+ </form>
+ </div>
+<div class="ui-g-2"></div>

@@ -1,0 +1,61 @@
+<!-- message tag for inform client in success or in faliar -->
+<p-messages [value]="msgs"></p-messages>
+<div class="ui-g-2"></div>
+<div class="ui-g-8">
+<!-- difine class form for add class  -->
+<form [formGroup]="classform" (ngSubmit)="onSubmit(classform.value)">
+    <p-panel header="Add Class">
+        <div class="ui-grid ui-grid-responsive ui-grid-pad ui-fluid" style="margin: 10px 0px">
+            <div class="ui-grid-row">
+                <div class="ui-grid-col-3">
+                    Name *:
+                </div>
+                <div class="ui-grid-col-9">
+                    <!-- get email bind the value to model.email -->
+                    <!-- two way data binding for name -->
+                    <input pInputText type="text" formControlName="name" placeholder="Required" [(ngModel)]="model.name"/>
+                </div>
+            </div>
+            <div class="ui-grid-row">
+                <div class="ui-grid-col-12">
+                    <!-- helper div that show error when required validation are not satisfied -->
+                    <div class="ui-message ui-messages-error ui-corner-all" *ngIf="!classform.controls['name'].valid&&classform.controls['name'].dirty">
+                        <i class="fa fa-close"></i>
+                        Name is required
+                    </div>
+                </div>
+            </div>
+            
+            <div class="ui-grid-row">
+                <div class="ui-grid-col-3">
+                    Grade *:
+                </div>
+                <div class="ui-grid-col-9">
+                <!-- get grads Id by using drop down menu -->
+                    <p-dropdown [options]="grads" formControlName="grad_id" [autoWidth]="false" [(ngModel)]="selectGrad"></p-dropdown>
+                </div>
+            </div>
+             <div class="ui-grid-row">
+                <div class="ui-grid-col-12">
+                <!-- helper div that show error when required validation are not satisfied -->
+                    <div class="ui-message ui-messages-error ui-corner-all" *ngIf="!classform.controls['grad_id'].valid&&classform.controls['grad_id'].dirty">
+                        <i class="fa fa-close"></i>
+                        Grad is required
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="ui-grid-row">
+            
+            <div class="ui-grid-col-4 ui-toolbar-group-right">
+                <!-- untill input are valid button is disable -->
+                <button pButton type="submit" label="Add Class" [disabled]="!classform.valid"></button>
+            </div>
+            
+        </div>
+      
+    </p-panel> 
+ </form>
+ </div>
+<div class="ui-g-2"></div>

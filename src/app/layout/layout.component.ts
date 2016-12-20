@@ -19,10 +19,9 @@ export class LayoutComponent implements OnInit {
   @HostListener("window:scroll", ['$event'])
   onWindowScroll(e){
   	let number = window.pageYOffset;
-  	
-  	if (number > 100) {
+  	if (number > 0) {
       this.navIsFixed = false;
-    } else if (!this.navIsFixed && number < 50) {
+    } else {
       this.navIsFixed = true;
     }
   }

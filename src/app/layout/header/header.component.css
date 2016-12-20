@@ -16,5 +16,10 @@
 	color: white;
 	padding: 15px;
 	cursor: pointer;
+	
 	}
 
+.headerCont{
+	height: 60px;
+	background:rgba(38, 58, 68, 0.8);
+}

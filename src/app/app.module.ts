@@ -2,6 +2,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+
 import { HttpModule } from '@angular/http';
 import { LayoutModule } from './layout/layout.module'
 import { AppRoutingModule }  from './app-routing.module';
@@ -18,7 +19,12 @@ import {InputTextModule,
   DropdownModule} from 'primeng/primeng';
 
 import {AuthGuard} from './_gurd/auth.gurd';
-import {BackendService,AuthenticationService} from './services';
+import {BackendService,AuthenticationService,FireAuthService,FbAuth,FirebaseConfig} from './services';
+import { 
+  AngularFireModule, 
+  AuthMethods, 
+  AuthProviders 
+} from "angularfire2";
 
 import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
@@ -64,13 +70,20 @@ import { AllStudentsComponent } from './all-students/all-students.component';
     PanelModule,
     FieldsetModule,
     MessagesModule,
-    DropdownModule
+    DropdownModule,
+    AngularFireModule,
+    AngularFireModule.initializeApp(FbAuth,{
+      provider: AuthProviders.Github,
+      method: AuthMethods.Popup
+    })
+    
   ],
   // inject providers to the app
   providers: [BackendService,
               AuthenticationService,
               AuthGuard,
-              ConfirmationService
+              ConfirmationService,
+              FireAuthService
               ],
   bootstrap: [AppComponent],
   // because we use cutem template in our app we need to schema as below

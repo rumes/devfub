@@ -1,0 +1,57 @@
+<!-- set login window using primng element -->
+<div class="msgContainer">
+    <p-messages [value]="msgs"></p-messages>
+</div>
+<div class="loginContainer">
+ <form [formGroup]="userform" (ngSubmit)="onSubmit(userform.value)">
+    <p-panel header="Validate">
+        <div class="ui-grid ui-grid-responsive ui-grid-pad ui-fluid" style="margin: 10px 0px">
+            <div class="ui-grid-row">
+                <div class="ui-grid-col-3">
+                    E-mail *:
+                </div>
+                <div class="ui-grid-col-9">
+                    <!-- get email bind the value to model.email -->
+                    <input pInputText type="text" formControlName="email" placeholder="Required" [(ngModel)]="model.email"/>
+                </div>
+            </div>
+            <div class="ui-grid-row">
+                <div class="ui-grid-col-12">
+                    <div class="ui-message ui-messages-error ui-corner-all" *ngIf="!userform.controls['email'].valid&&userform.controls['email'].dirty">
+                        <i class="fa fa-close"></i>
+                        Email is required
+                    </div>
+                </div>
+            </div>
+            
+            <div class="ui-grid-row">
+                <div class="ui-grid-col-3">
+                    Password *:
+                </div>
+                <div class="ui-grid-col-9">
+                <!-- get password bind the value to model.password -->
+                    <input pInputText type="password" formControlName="password" placeholder="Required - Min(6)" 
+                    [(ngModel)]="model.password"/>
+                </div>
+            </div>
+            <div class="ui-grid-row">
+                <div class="ui-grid-col-12">
+                    <div class="ui-message ui-messages-error ui-corner-all" *ngIf="!userform.controls['password'].valid&&userform.controls['password'].dirty">
+                        <i class="fa fa-close"></i>
+                        <span *ngIf="userform.controls['password'].errors['required']">Password is required</span>
+                    </div>
+                </div>
+            </div>
+        
+            <div class="ui-grid-row">
+                
+                <div class="ui-grid-col-12">
+                    <!-- untill input are valid button is disable -->
+                    <button pButton type="submit" label="Log In" [disabled]="!userform.valid"></button>
+                </div>
+                
+            </div>
+        </div>   
+    </p-panel> 
+ </form>
+</div>

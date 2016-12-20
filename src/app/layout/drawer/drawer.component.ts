@@ -45,7 +45,8 @@ export class DrawerComponent implements OnInit {
                     {label: 'Add Class', icon: 'fa-plus',routerLink:['/add-class']},
                     {label: 'Add Student', icon: 'fa-plus',routerLink:['/add-student']},
                     {label: 'Classes List', icon: 'fa-th-list',routerLink:['/all-classes']},
-                    {label: 'Student List', icon: 'fa-th-list',routerLink:['/all-student']}
+                    {label: 'Student List', icon: 'fa-th-list',routerLink:['/all-student']},
+                    {label: 'Chat', icon: 'fa-th-list',routerLink:['/chat']}
                 ];
   }
 
